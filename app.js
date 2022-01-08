@@ -5,11 +5,13 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+// bodyParser to capture form data
 app.use(bodyParser.urlencoded({extended:true}));
 
 // start using ejs for templating
 app.set("view engine", "ejs");
 
+// GET root "/"
 app.get("/", function(req, res) {
   // capture the day and date and send it to home page
   var options = {
@@ -22,6 +24,13 @@ app.get("/", function(req, res) {
   var day = today.toLocaleDateString("en-US", options);
 
   res.render("list", {kindOfDay: day});
+});
+
+// POST to root "/"
+app.post("/", function(req, res) {
+  var formData = req.body;
+  var newTask = formData.newTask;
+  console.log(newTask);
 });
 
 app.listen(process.env.PORT || 3000, function() {
