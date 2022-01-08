@@ -8,6 +8,9 @@ const app = express();
 // items in the list - GLOBAL scope
 var items = ["Buy food", "Cook food", "Eat food"];
 
+// declare static folder "public" address
+app.use(express.static("public"))
+
 // bodyParser to capture form data
 app.use(bodyParser.urlencoded({extended:true}));
 
