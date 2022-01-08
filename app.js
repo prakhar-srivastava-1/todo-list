@@ -8,7 +8,12 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get("/", function(req, res){
-  res.send("<h1>Hello World!</h1>")
+  // capture the day and send it to home page
+  var today = new Date();
+  var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var day = today.getDay();
+  console.log(weekdays[day]);
+  res.send("<h1>" + weekdays[day] + "</h1>")
 });
 
 app.listen(process.env.PORT || 3000, function() {
