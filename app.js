@@ -5,6 +5,9 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+// items in the list - GLOBAL scope
+var items = ["Buy food", "Cook food", "Eat food"];
+
 // bodyParser to capture form data
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -23,14 +26,16 @@ app.get("/", function(req, res) {
   var today = new Date();
   var day = today.toLocaleDateString("en-US", options);
 
-  res.render("list", {kindOfDay: day});
+  res.render("list", {kindOfDay: day, items: items});
 });
 
 // POST to root "/"
 app.post("/", function(req, res) {
   var formData = req.body;
   var newTask = formData.newTask;
-  console.log(newTask);
+  items.push(newTask);
+  // console.log(items);
+  res.redirect("/");
 });
 
 app.listen(process.env.PORT || 3000, function() {
