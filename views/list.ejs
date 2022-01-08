@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="css/styles.css" type="text/css">
   </head>
   <body>
-    <h1><%= kindOfDay %></h1>
+    <div class="box" id="heading">
+      <h1><%= kindOfDay %></h1>
+    </div>
     <ul>
       <% for (var i=0; i< items.length; i++) { %>
       <li><%= items[i] %></li>
