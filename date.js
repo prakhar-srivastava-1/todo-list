@@ -2,25 +2,25 @@
 
 exports.getDate = function() {
   // capture the day and date and send it to home page
-  var options = {
+  const options = {
     weekday: "long",
     month: "long",
     day: "numeric"
   };
 
-  var today = new Date();
-  var day = today.toLocaleDateString("en-US", options);
+  const today = new Date();
+  const day = today.toLocaleDateString("en-US", options);
   return day;
 };
 
 
 exports.getDay = function() {
   // capture the day and date and send it to home page
-  var options = {
+  const options = {
     weekday: "long",
   };
 
-  var today = new Date();
-  var day = today.toLocaleDateString("en-US", options);
+  const today = new Date();
+  const day = today.toLocaleDateString("en-US", options);
   return day;
 };

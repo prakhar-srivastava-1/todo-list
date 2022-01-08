@@ -30,8 +30,8 @@ app.get("/", function(req, res) {
 
 // POST to root "/"
 app.post("/", function(req, res) {
-  var formData = req.body;
-  var newTask = formData.newTask;
+  const formData = req.body;
+  const newTask = formData.newTask;
   items.push(newTask);
   // console.log(items);
   res.redirect("/");
