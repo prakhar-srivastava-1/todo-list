@@ -11,12 +11,17 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  // capture the day and send it to home page
+  // capture the day and date and send it to home page
+  var options = {
+    weekday: "long",
+    month: "long",
+    day: "numeric"
+  };
+
   var today = new Date();
-  var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  var day = today.getDay();
-  console.log(weekdays[day]);
-  res.render("list", {kindOfDay: weekdays[day]});
+  var day = today.toLocaleDateString("en-US", options);
+
+  res.render("list", {kindOfDay: day});
 });
 
 app.listen(process.env.PORT || 3000, function() {
