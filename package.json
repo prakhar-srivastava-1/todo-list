@@ -1,0 +1,19 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "A seamless todo list creator which allows you to view, add and update tasks. This project has been created using node-express framework.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prakhar-srivastava-1/todo-list.git"
+  },
+  "author": "Prakhar Srivastava",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prakhar-srivastava-1/todo-list/issues"
+  },
+  "homepage": "https://github.com/prakhar-srivastava-1/todo-list#readme"
+}
