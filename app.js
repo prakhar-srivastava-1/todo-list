@@ -7,13 +7,16 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.get("/", function(req, res){
+// start using ejs for templating
+app.set("view engine", "ejs");
+
+app.get("/", function(req, res) {
   // capture the day and send it to home page
   var today = new Date();
   var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var day = today.getDay();
   console.log(weekdays[day]);
-  res.send("<h1>" + weekdays[day] + "</h1>")
+  res.render("list", {kindOfDay: weekdays[day]});
 });
 
 app.listen(process.env.PORT || 3000, function() {
