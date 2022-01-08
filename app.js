@@ -3,10 +3,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+// manually created modules
+const date = require(__dirname + "/date.js");
+
 const app = express();
 
 // items in the list - GLOBAL scope
-var items = ["Buy food", "Cook food", "Eat food"];
+// Items can be pushed into constant arrays
+const items = ["Buy food", "Cook food", "Eat food"];
 
 // declare static folder "public" address
 app.use(express.static("public"))
@@ -19,16 +23,8 @@ app.set("view engine", "ejs");
 
 // GET root "/"
 app.get("/", function(req, res) {
-  // capture the day and date and send it to home page
-  var options = {
-    weekday: "long",
-    month: "long",
-    day: "numeric"
-  };
-
-  var today = new Date();
-  var day = today.toLocaleDateString("en-US", options);
-
+  // call date.getDate()
+  const day = date.getDate();
   res.render("list", {kindOfDay: day, items: items});
 });
 
