@@ -25,7 +25,8 @@ app.set("view engine", "ejs");
 app.get("/", function(req, res) {
   // call date.getDate()
   const day = date.getDate();
-  res.render("list", {kindOfDay: day, items: items});
+  const year = date.getYear();
+  res.render("list", {kindOfDay: day, items: items, year:year});
 });
 
 // POST to root "/"
